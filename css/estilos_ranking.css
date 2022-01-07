@@ -1,0 +1,140 @@
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100vh;
+}
+
+@font-face {
+    font-family: 'fuente-titulos';
+    src: url("../fuentes/WizardWorldSimplified-Kxr7.ttf");
+}
+
+@font-face {
+    font-family: 'fuente-texto';
+    src: url("../fuentes/dum1.ttf");
+}
+
+body {
+    background-image: url("../imagenes/fondo_inicio.jpg");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    user-select: none;
+}
+
+#container {
+    width: 100%;
+    max-width: 900px;
+    min-width: 320px;
+    height: 100%;
+    max-height: 80vh;
+    min-height: 200px;
+}
+
+
+#container h2 {
+    font-family: 'fuente-titulos';
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#ranking {
+    width: 80%;
+    margin: 0 10%;
+    height: 76%;
+    overflow-y: scroll;
+}
+
+table {
+    margin: 0 auto;
+}
+
+table td {
+    font-size: 1.3rem;
+    font-family: "fuente-texto";
+    font-style: italic;
+    text-shadow: 0px 0px 1px rgba(0, 0, 0, 0.2);
+    padding-right: 60px;
+    color: darkslategrey;
+}
+
+table img {
+    width: 70px;
+    border: 3px solid white;
+    border-radius: 50%;
+    box-shadow: 1px 1px 7px black;
+}
+
+#numero_ranking {
+    color: black;
+    font-size: 2.5rem;
+    padding-right: 20px;
+}
+
+.icono_ranking {
+    margin-left: 10px;
+    font-size: 1.9rem;
+}
+
+.volver {
+    width: 2rem;
+}
+
+.volver:hover {
+    transform: scale(1.2);
+    transition: 0.05s;
+}
+
+#menu {
+    width: 60px;
+    height: 100vh;
+    position: fixed;
+    left: 0;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 1px 1px 5px black;
+    background-color: rgba(255, 255, 255, .2);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    padding: 3% 0;
+}
+
+#menu img {
+    margin-top: 20px;
+}
+
+#ranking::-webkit-scrollbar {
+    width: 10px;     /* Tamaño del scroll en vertical */
+}
+
+#ranking::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, .2);
+    border-radius: 4px;
+}
+
+/* Cambiamos el fondo y agregamos una sombra cuando esté en hover */
+#ranking::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(0, 0, 0, 1);
+    border-radius: 20px;
+}
+
+/* Ponemos un color de fondo y redondeamos las esquinas del track */
+#ranking::-webkit-scrollbar-track {
+    box-shadow: 1px 1px 5px black;
+    background-color: rgba(255, 255, 255, .2);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border-radius: 10px;
+}
+
+
+

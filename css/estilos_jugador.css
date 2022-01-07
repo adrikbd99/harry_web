@@ -1,0 +1,179 @@
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100vh;
+}
+
+@font-face {
+    font-family: 'fuente-titulos';
+    src: url("../fuentes/WizardWorldSimplified-Kxr7.ttf");
+}
+
+@font-face {
+    font-family: 'fuente-texto';
+    src: url("../fuentes/dum1.ttf");
+}
+
+body {
+    background-image: url("../imagenes/fondo_inicio.jpg");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    user-select: none;
+}
+
+#container {
+    width: 100%;
+    max-width: 80vw;
+    min-width: 320px;
+    height: 100%;
+    max-height: 80vh;
+    min-height: 200px;
+}
+
+#container h2 {
+    font-family: 'fuente-titulos';
+    font-size: 2.5rem;
+    text-align: center;
+}
+
+.volver {
+    width: 2rem;
+}
+
+.volver:hover {
+    transform: scale(1.2);
+    transition: 0.05s;
+}
+
+/* INPUT NOMBRE USUARIO */
+#nombre {
+    width: 90%;
+    margin: 20px auto;
+    display: flex;
+    justify-content: center;
+}
+
+#nombre input {
+    margin: 0 auto 20px auto;
+    padding: 0.5rem;
+    background-color: white;
+    color: darkslategrey;
+    border: 3px solid darkslategrey;
+    box-shadow: 1px 1px 5px darkslategrey;
+    border-radius: 0.5rem;
+    font-size: 1.5rem;
+    font-family: 'fuente-texto';
+    text-transform: lowercase;
+}
+
+#nombre input:focus {
+    outline: none;
+}
+
+::-webkit-input-placeholder {
+    color: darkslategrey;
+}
+
+/* AVATAR */
+#avatar {
+    width: 85%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    row-gap: 20px;
+}
+
+#fila1 {
+    width: 85%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+#fila2 {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.img {
+    width: 100px;
+    border-radius: 50%;
+    box-shadow: 1px 1px 5px black;
+}
+
+.img:hover {
+    border: 3px solid white;
+    box-shadow: 3px 2px 15px black;
+    transform: scale(1.2);
+    transition: 0.1s;
+    cursor: pointer;
+}
+
+.activa {
+    border: 3px solid white;
+    box-shadow: 3px 2px 15px black;
+    transform: scale(1.2);
+    transition: 0.1s;
+}
+
+#boton {
+    margin: 70px auto auto auto;
+    text-align: right;
+}
+
+#boton_jugar {
+    text-decoration: none;
+    font-size: 1.5rem;
+    padding-bottom: 3px;
+    border: none;
+    font-family: 'fuente-titulos';
+    font-weight: bold;
+    background-color: transparent;
+    background-image: linear-gradient(black, black);
+    background-position: 0% 100%;
+    background-repeat: no-repeat;
+    background-size: 0% 3px;
+    transition: background-size .2s;
+}
+
+#boton_jugar:hover {
+    background-size: 100% 3px;
+}
+
+#menu {
+    width: 60px;
+    height: 100vh;
+    position: fixed;
+    left: 0;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 1px 1px 5px black;
+    background-color: rgba(255, 255, 255, .2);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    padding: 3% 0;
+}
+
+#menu img {
+    margin-top: 20px;
+}
+
+#ruta {
+    position: fixed;
+    top: 62%;
+    left: 65%;
+    opacity: 0;
+}

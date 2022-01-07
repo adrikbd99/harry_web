@@ -1,0 +1,690 @@
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100vh;
+}
+
+@font-face {
+    font-family: 'fuente-titulos';
+    src: url("../fuentes/WizardWorldSimplified-Kxr7.ttf");
+}
+
+@font-face {
+    font-family: 'fuente-texto';
+    src: url("../fuentes/dum1.ttf");
+}
+
+body {
+    background-image: url("../imagenes/fondo_partida.png");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    user-select: none;
+}
+
+#menu {
+    width: 60px;
+    height: 100vh;
+    position: fixed;
+    left: 0;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 1px 1px 5px black;
+    background-color: rgba(255, 255, 255, .2);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    padding: 3% 0;
+}
+
+#menu img {
+    margin-top: 20px;
+}
+
+.volver {
+    width: 2.2rem;
+}
+
+.volver:hover {
+    transform: scale(1.2);
+    transition: 0.05s;
+    cursor: pointer;
+}
+
+#cambiarSonido {
+    width: 2rem;
+}
+
+#cambiarSonido:hover {
+    transform: scale(1.2);
+    transition: 0.05s;
+    cursor: pointer;
+}
+
+#cambiarMusica {
+    width: 2rem;
+}
+
+#cambiarMusica:hover {
+    transform: scale(1.2);
+    transition: 0.05s;
+    cursor: pointer;
+}
+
+#opciones_sonidos {
+    text-align: center;
+}
+
+#container {
+    width: 100%;
+    max-width: 100vw;
+    min-width: 320px;
+    height: 100%;
+    max-height: 100vh;
+    min-height: 200px;
+    display: grid;
+    grid-template-areas: "puntuacion tiempo jugador"
+    "tablero tablero tablero"
+    "progreso progreso progreso";
+    grid-template-rows: 20% 60% 15%;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+#puntuacion {
+    grid-area: puntuacion;
+    width: 55%;
+    height: 70%;
+    margin: 4% auto;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 40% 60%;
+    grid-template-areas: "titulo"
+    "cartas";
+    background-image: url("../imagenes/fondo_madera.jpg");
+    border-radius: 50px;
+    box-shadow: 0px 0px 5px black;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 5px;
+}
+
+#cartas {
+    width: 90%;
+    margin: 0 auto;
+    grid-area: cartas;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#titulo_puntuacion {
+    grid-area: titulo;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#titulo_puntuacion p {
+    color: rgb(255, 224, 224);
+    text-align: center;
+    font-family: "fuente-titulos";
+    font-size: 1.2rem;
+    font-style: italic;
+    text-shadow: 2px 0px 10px black;
+    padding-top: 7px;
+}
+
+.carta {
+    width: 2.5rem;
+    background-color: rgb(255, 224, 224);
+    font-family: "fuente-texto";
+    font-size: 2.5rem;
+    box-shadow: 2px -2px 5px black inset;
+    border-radius: 50%;
+    text-align: center;
+}
+
+.sumar_puntuacion {
+    transition: 0.3s;
+    background-color: rgb(212, 166, 50);
+}
+
+.restar_puntuacion {
+    transition: 0.3s;
+    background-color: rgb(170, 11, 11);
+}
+
+#tiempo {
+    grid-area: tiempo;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.poco_tiempo {
+    color: rgb(170, 11, 11);
+    transform: scale(1.3);
+    transition: 0.2s;
+    margin-right: 5px;
+}
+
+#temporizador {
+    font-size: 3rem;
+    font-family: "fuente-texto";
+    opacity: 1;
+}
+
+#segundos {
+    font-size: 2rem;
+    font-family: "fuente-texto";
+    margin-left: 3px;
+    opacity: 0.9;
+}
+
+#tiempo img {
+    width: 2rem;
+    margin-right: 10px;
+    opacity: 1;
+}
+
+#jugador {
+    grid-area: jugador;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding-right: 15%;
+}
+
+#jugador img {
+    width: 100px;
+    border-radius: 50%;
+    border: 3px solid white;
+    box-shadow: 3px 2px 15px black;
+    margin-left: 1.2rem;
+}
+
+#jugador p {
+    display: inline;
+    font-size: 2rem;
+    font-family: "fuente-texto";
+    color: black;
+    opacity: 1;
+
+}
+
+#tablero {
+    grid-area: tablero;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* ESTRUCTURA 1 */
+#pagina1 {
+    width: 65%;
+    height: 90%;
+    display: grid;
+    grid-gap: 1rem;
+    grid-template-areas: "enunciado enunciado"
+    "respuesta1 respuesta2"
+    "respuesta3 respuesta4";
+    grid-template-rows: 100px 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
+    padding: 1rem;
+}
+
+#enunciado1 {
+    grid-area: enunciado;
+    font-family: "fuente-titulos";
+    font-size: 2rem;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#enunciado1 p {
+    color: black;
+    opacity: 0.9;
+    padding: 10px;
+    border-radius: 5px;
+    font-style: italic;
+    font-weight: bold;
+}
+
+#respuesta1 {
+    grid-area: respuesta1;
+    font-family: "fuente-texto";
+    font-size: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#respuesta2 {
+    grid-area: respuesta2;
+    font-family: "fuente-texto";
+    font-size: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#respuesta3 {
+    grid-area: respuesta3;
+    font-family: "fuente-texto";
+    font-size: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#respuesta4 {
+    grid-area: respuesta4;
+    font-family: "fuente-texto";
+    font-size: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* ESTRUCTURA 2 */
+#pagina2 {
+    width: 65%;
+    height: 90%;
+    display: grid;
+    grid-gap: 1rem;
+    grid-template-areas: "enunciado2 enunciado2"
+    "verdadero falso";
+    grid-template-rows: 100px 1fr;
+    grid-template-columns: 1fr 1fr;
+    padding: 1rem;
+}
+
+#enunciado2 {
+    grid-area: enunciado2;
+    font-family: "fuente-titulos";
+    font-size: 2rem;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#enunciado2 p {
+    color: black;
+    opacity: 0.9;
+    padding: 10px;
+    border-radius: 5px;
+    font-style: italic;
+    font-weight: bold;
+}
+
+#verdadero {
+    grid-area: verdadero;
+    font-family: "fuente-texto";
+    font-size: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#falso {
+    grid-area: falso;
+    font-family: "fuente-texto";
+    font-size: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* ESTRUCTURA 3 */
+#pagina3 {
+    width: 65%;
+    height: 90%;
+    display: grid;
+    grid-gap: 1rem;
+    grid-template-areas: "enunciado3 enunciado3 enunciado3"
+    "opcion1 imagen opcion2";
+    grid-template-rows: 100px 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
+    padding: 1rem;
+}
+
+#enunciado3 {
+    grid-area: enunciado3;
+    font-family: "fuente-titulos";
+    font-size: 2rem;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#enunciado3 p {
+    color: black;
+    opacity: 0.9;
+    padding: 10px;
+    border-radius: 5px;
+    font-style: italic;
+    font-weight: bold;
+}
+
+#imagen {
+    grid-area: imagen;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#imagen img {
+    width: 220px;
+    border-radius: 0.5rem;
+    box-shadow: 0px 0px 5px black;
+}
+
+#opcion1 {
+    grid-area: opcion1;
+    font-family: "fuente-texto";
+    font-size: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+#opcion2 {
+    grid-area: opcion2;
+    font-family: "fuente-texto";
+    font-size: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.opcion {
+    font-weight: bold;
+    opacity: 0.6;
+    font-style: italic;
+    padding: 20px;
+    cursor: pointer;
+    text-align: center;
+}
+
+.opcion:hover {
+    opacity: 1;
+    transform: scale(1.1);
+    transition: 0.5s;
+}
+
+.acertada {
+    opacity: 1;
+    color: rgb(212, 166, 50);
+}
+
+.fallada {
+    opacity: 1;
+    color: rgb(170, 11, 11);
+}
+
+#progreso {
+    grid-area: progreso;
+    margin-top: 5%;
+    opacity: .9;
+}
+
+#fondo_barra {
+    margin: 0 auto;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 70%;
+    height: 10px;
+    box-shadow: 1px 1px 5px black;
+    background-color: rgba(255, 255, 255, .2);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border-radius: 10px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+#progreso_barra {
+    height: 40%;
+    background-color: black;
+    border-radius: 20px;
+    transition: 1s;
+}
+
+#progreso_contador {
+    width: 20%;
+    margin: 5px auto 0 auto;
+    font-family: "fuente-texto";
+    font-size: 1rem;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* VENTANA MODAL OPCIONES */
+#contenedor_modal {
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(66, 54, 54, 0.521);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    visibility: hidden;
+}
+
+#opciones {
+    width: 30%;
+    height: 30%;
+    border-radius: 0.5rem;
+    background-color: rgb(255, 224, 224);
+    box-shadow: 0px 0px 10px black;
+    display: grid;
+    grid-template-areas: "inicio continuar"
+    "texto_inicio texto_continuar";
+    grid-template-rows: 70% 30%;
+    grid-template-columns: 50% 50%;
+    padding: 40px;
+}
+
+#inicio {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    grid-area: inicio; 
+}
+
+#inicio img {
+    width: 50px;
+}
+
+#inicio img:hover {
+    transform: scale(1.2);
+    transition: 0.2s;
+    cursor: pointer;
+}
+
+#continuar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    grid-area: continuar;
+}
+
+#continuar img {
+    width: 50px;
+}
+
+#continuar img:hover {
+    transform: scale(1.2);
+    transition: 0.2s;
+    cursor: pointer;
+}
+
+#texto_inicio {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    grid-area: texto_inicio;   
+}
+
+#texto_inicio span {
+    font-size: 1rem;
+    font-family: "fuente-titulos";
+}
+
+#texto_continuar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    grid-area: texto_continuar;
+}
+
+#texto_continuar span {
+    font-size: 1rem;
+    font-family: "fuente-titulos";
+}
+
+#resultado_final {
+    visibility: hidden;
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-color: rgba(66, 54, 54, 0.521);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#diploma {
+    width: 50%;
+    height: 90%;
+    background-image: url("../imagenes/diploma.jpg");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    box-shadow: 2px 2px 20px black;
+    padding: 7px;
+}
+
+#borde_diploma {
+    width: 100%;
+    height: 100%;
+    border: 2px solid rgba(0, 0, 0, 1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    opacity: .9;
+}
+
+#tabla_diploma {
+    margin-top: 10px;
+    font-size: 2rem;
+    font-family: "fuente-texto";
+    font-style: italic;
+    text-shadow: 0px 0px 1px rgba(0, 0, 0, 0.2);
+    color: darkslategrey;
+    text-shadow: 0px 0px 1px rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+#puntuacion_final {
+    margin-top: 10px;
+}
+
+#puntuacion_final img {
+    border-radius: 50%;
+    width: 100px;
+    border: 3px solid white;
+    box-shadow: 1px 1px 10px black;
+}
+
+#puntuacion_final p {
+    font-family: "fuente-titulos";
+    font-size: 2rem;
+    text-align: center;
+    margin-top: 30px;
+}
+
+#puntos_finales {
+    font-size: 4;
+    font-family: "fuente-texto";
+    font-style: italic;
+    color: darkslategrey;
+    text-decoration: underline;
+}
+
+#enlaces_finales {
+    margin-top: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+#enlaces_finales a {
+    font-size: 1.5rem;
+    text-decoration: none;
+    color: black;
+    font-family: "fuente-texto";
+    font-weight: bold;
+}
+
+#enlaces_finales a:hover {
+    transform: scale(1.2);
+    transition: 0.2s;
+}
+
+#agradecimientos {
+    text-align: center;
+    font-size: 1rem;
+    font-family: "fuente-texto";
+    font-style: italic;
+    font-weight: bold;
+    color: rgba(0, 0, 0, 0.8);
+    margin-top: 50px;
+}
+
+#agradecimientos img{
+    width: 100px;
+    margin: 0 5px;
+}
+
+#imagenes_agradecimientos {
+    width: 100%;
+    height: 50px;
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+#version {
+    position: fixed;
+    bottom: 20px;
+    right: 30px;
+    font-family: 'fuente-texto';
+    font-style: italic;
+    font-size: 1rem;
+}
